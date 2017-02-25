@@ -1,1 +1,3 @@
-dwa
+node_modules/*
+*/dist/*
+app/libs/*
