@@ -11,7 +11,8 @@ var gulp = require('gulp'),
 		cache = require('gulp-cache'),
 		autoprefixer = require('gulp-autoprefixer'),
 		stylus = require('gulp-stylus'),
-		sourcemaps = require('gulp-sourcemaps');
+		sourcemaps = require('gulp-sourcemaps'),
+		less = require('gulp-less');
 
 
 gulp.task('stylus', function() {
@@ -22,6 +23,14 @@ gulp.task('stylus', function() {
 	.pipe(sourcemaps.write())
 	.pipe(gulp.dest('app/css'))
 	.pipe(browserSync.reload({stream: true}))	
+})
+
+gulp.task('less', function() {
+	return gulp.src('app/less/**/*.less')
+	.pipe(less())
+	.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
+	.pipe(gulp.dest('app/css'))
+	.pipe(browserSync.reload({stream: true}))
 })
 
 gulp.task('sass', function() {
@@ -85,6 +94,12 @@ gulp.task('watchS', ['sync','stylus'], function() {
 
 gulp.task('watch', ['sync', 'css-libs', 'scripts'], function() {
 	gulp.watch('app/sass/**/*.sass', ['sass']);
+	gulp.watch('app/*.html', browserSync.reload);
+	gulp.watch('app/js/**/*.js', browserSync.reload);
+});
+
+gulp.task('watchL', ['sync', 'less'], function() {
+	gulp.watch('app/less/**/*.less', ['less']);
 	gulp.watch('app/*.html', browserSync.reload);
 	gulp.watch('app/js/**/*.js', browserSync.reload);
 });

@@ -1,0 +1,28 @@
+.text_post {
+  font-family: "HelveticaNeue";
+}
+.text_post .header {
+  color: #747474;
+  font-weight: bold;
+  font-size: 30pt;
+  display: inline-block;
+}
+.text_post .comments {
+  color: #909090;
+}
+.text_post .content {
+  color: #909090;
+  font-size: 20px;
+}
+.button {
+  width: 100px;
+  border: 2px solid #747474;
+  padding: 20px;
+}
+.button li {
+  list-style-type: none;
+}
+.button a {
+  text-decoration: none;
+  color: #747474;
+}

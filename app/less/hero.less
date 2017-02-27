@@ -1,0 +1,58 @@
+@fonts: "HelveticaNeue";
+
+.image {
+	max-width: 100%;
+	height: 860px;
+}
+
+.hero_image	 {
+	filter: brightness(65%);
+	position: relative;
+	.vista {
+		top: 30%;
+		left: 50%;
+		position: absolute;
+		border: 4px solid #ffffff;
+		padding: 20px;
+	  font-family:@fonts;
+	  color: white;
+		font-weight: bold;  		
+	}
+	.text{	
+		top: 50%;
+		left: 40%;
+		position: absolute;
+		padding: 20px;
+	  font-family:@fonts;
+	  color: white;
+		font-weight: bold;  		
+	}
+
+	.arrow {
+	  position: absolute;
+	  top: 40%;
+	  bottom: 0;
+	  background: rgba(0,0,0,0);
+	  color: #fff;
+	}
+}
+
+.hero_image:hover {
+	filter: brightness(100%);
+}
+
+.hero_image .previous {
+	left: 0;
+}
+
+.hero_image .previous:hover {
+	background-position: left bottom;
+}
+
+.hero_image .next {
+	right: 0;
+}
+
+.hero_image .next:hover {
+	background-position: right bottom;
+}
