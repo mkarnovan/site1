@@ -1,0 +1,15 @@
+.quote {
+  background-color: #E44A4A;
+  height: 600px;
+}
+.quote .info {
+  font-family: "HelveticaNeue";
+  color: white;
+}
+.quote .content {
+  font-size: 30pt;
+  font-style: italic;
+}
+.quote .author {
+  font-size: 20pt;
+}

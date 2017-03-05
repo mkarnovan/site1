@@ -1,0 +1,6 @@
+.image {
+  height: 1000px;
+}
+.image .image2 {
+  max-width: 100%;
+}

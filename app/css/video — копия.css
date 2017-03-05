@@ -1,0 +1,10 @@
+.video {
+  background-color: #354A5F;
+}
+.video p {
+  font-family: "HelveticaNeue";
+  color: white;
+}
+.video video {
+  max-width: 100%;
+}
