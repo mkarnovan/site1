@@ -1,5 +1,6 @@
 .text_post {
   font-family: "HelveticaNeue";
+  margin: 0 auto;
 }
 .text_post .header {
   color: #747474;
