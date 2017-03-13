@@ -1,5 +1,4 @@
 var gulp = require('gulp'),
-		sass = require('gulp-sass'), 
 		browserSync = require('browser-sync'),
 		concat = require('gulp-concat'),
 		uglify = require('gulp-uglifyjs'),
@@ -10,20 +9,9 @@ var gulp = require('gulp'),
 		pngquant = require('imagemin-pngquant'),
 		cache = require('gulp-cache'),
 		autoprefixer = require('gulp-autoprefixer'),
-		stylus = require('gulp-stylus'),
 		sourcemaps = require('gulp-sourcemaps'),
 		less = require('gulp-less');
 
-
-gulp.task('stylus', function() {
-	return gulp.src('app/stylus/**/*.styl')
-	.pipe(sourcemaps.init())
-	.pipe(stylus())
-	.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
-	.pipe(sourcemaps.write())
-	.pipe(gulp.dest('app/css'))
-	.pipe(browserSync.reload({stream: true}))	
-})
 
 gulp.task('less', function() {
 	return gulp.src('app/less/**/*.less')
@@ -32,14 +20,6 @@ gulp.task('less', function() {
 	.pipe(gulp.dest('app/css'))
 	.pipe(browserSync.reload({stream: true}))
 })
-
-gulp.task('sass', function() {
-	return gulp.src('app/sass/**/*.sass')
-	.pipe(sass())
-	.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
-	.pipe(gulp.dest('app/css'))
-	.pipe(browserSync.reload({stream: true}))
-});
 
 gulp.task('scripts', function() {
 	return gulp.src([
@@ -51,8 +31,8 @@ gulp.task('scripts', function() {
 	.pipe(gulp.dest('app/js'))
 });
 
-gulp.task('css-libs', ['sass'], function() {
-	return gulp.src('app/css/libs.css')
+gulp.task('css-libs', ['less'], function() {
+	return gulp.src(['app/css/style.css', 'app/css/normalize.css'])
 	.pipe(cssnano())
 	.pipe(rename({suffix: '.min'}))
 	.pipe(gulp.dest('app/css'));
@@ -86,28 +66,16 @@ gulp.task('img', function() {
 	.pipe(gulp.dest('dist/img'));
 });
 
-gulp.task('watchS', ['sync','stylus'], function() {
-	gulp.watch('app/stylus//*.styl', ['stylus']);
-	gulp.watch('app/*.html', browserSync.reload);
-	gulp.watch('app/js/**/*.js', browserSync.reload);
-});
-
 gulp.task('watch', ['sync', 'css-libs', 'scripts'], function() {
-	gulp.watch('app/sass/**/*.sass', ['sass']);
-	gulp.watch('app/*.html', browserSync.reload);
-	gulp.watch('app/js/**/*.js', browserSync.reload);
-});
-
-gulp.task('watchL', ['sync', 'less'], function() {
 	gulp.watch('app/less/**/*.less', ['less']);
 	gulp.watch('app/*.html', browserSync.reload);
 	gulp.watch('app/js/**/*.js', browserSync.reload);
 });
 
-gulp.task('build', ['clean', 'img', 'sass', 'scripts'], function() {
+gulp.task('build', ['clean', 'img', 'less', 'scripts'], function() {
 
 	var buildCss = gulp.src([
-			'app/css/main.css',
+			'app/css/style.css',
 			'app/css/libs.min.css',
 		])
 	.pipe(gulp.dest('dist/css'));
