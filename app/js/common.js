@@ -33,10 +33,9 @@ burger.addEventListener("click", (e) => {
 (function() { 
 	let left = document.querySelector('.slider .arrows .prev'), 
 	right = document.querySelector('.slider .arrows .next'), 
-	slide = document.querySelectorAll('.slider .block_info .block'), 
-	i = 0, 
-	myinterval = setInterval(right.onclick,5000); 
-
+	slide = document.querySelectorAll('.slider .slider_content .slide'), 
+	i = 0;
+	
 	left.onclick = function() {
 		event.preventDefault();
 		slide[i].classList.remove('active'); 
@@ -58,5 +57,4 @@ burger.addEventListener("click", (e) => {
 
 		slide[i].classList.add('active'); 
 	} 
-	myinterval;
 }());
