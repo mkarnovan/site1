@@ -1,10 +1,17 @@
 .video {
   background-color: #354A5F;
-}
-.video p {
-  font-family: "HelveticaNeue";
   color: white;
+  padding-left: 2%;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 .video video {
-  max-width: 100%;
+  padding-top: 60px;
+  width: 90%;
+  min-height: 400px ;
+}
+@media (max-width: 670px) {
+  video {
+    min-height: 200px ;
+  }
 }

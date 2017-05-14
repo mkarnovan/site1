@@ -1,17 +1,17 @@
 var gulp = require('gulp'),
-		browserSync = require('browser-sync'),
-		concat = require('gulp-concat'),
-		uglify = require('gulp-uglifyjs'),
-		cssnano = require('gulp-cssnano'),
-		rename = require('gulp-rename'),
-		del = require('del'),
-		imagemin = require('gulp-imagemin'),
-		pngquant = require('imagemin-pngquant'),
-		cache = require('gulp-cache'),
-		autoprefixer = require('gulp-autoprefixer'),
-		sourcemaps = require('gulp-sourcemaps'),
-		less = require('gulp-less'),
-		jsmin = require('gulp-jsmin');
+browserSync = require('browser-sync'),
+concat = require('gulp-concat'),
+uglify = require('gulp-uglifyjs'),
+cssnano = require('gulp-cssnano'),
+rename = require('gulp-rename'),
+del = require('del'),
+imagemin = require('gulp-imagemin'),
+pngquant = require('imagemin-pngquant'),
+cache = require('gulp-cache'),
+autoprefixer = require('gulp-autoprefixer'),
+sourcemaps = require('gulp-sourcemaps'),
+less = require('gulp-less'),
+jsmin = require('gulp-jsmin');
 
 
 gulp.task('less', function() {
@@ -22,11 +22,17 @@ gulp.task('less', function() {
 	.pipe(browserSync.reload({stream: true}))
 })
 
-gulp.task('scripts', function () {
-    gulp.src('app/js/common.js')
-        .pipe(jsmin())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('app/js'));
+gulp.task('scripts_concat', function() {
+	return gulp.src(['app/js/burger.js','app/js/slider.js', 'app/js/loginForm.js'])
+	.pipe(concat('style.js'))
+	.pipe(gulp.dest('app/js'));
+});
+
+gulp.task('scripts', ['scripts_concat'], function () {
+	gulp.src('app/js/style.js')
+	.pipe(jsmin())
+	.pipe(rename({suffix: '.min'}))
+	.pipe(gulp.dest('app/js'));
 });
 
 gulp.task('css-libs', ['less'], function() {

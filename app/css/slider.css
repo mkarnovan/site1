@@ -56,3 +56,24 @@
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
+@media (max-width: 670px) {
+  .slider {
+    min-height: 200px ;
+  }
+  .arrows {
+    top: 40% ;
+  }
+  .arrows .prev {
+    background-size: 100% 100%;
+    height: 50px ;
+    width: 50px;
+  }
+  .arrows .next {
+    background-size: 100% 100%;
+    height: 50px ;
+    width: 50px;
+  }
+  .slide {
+    height: 100%;
+  }
+}

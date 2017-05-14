@@ -2,117 +2,122 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="vieport" content="width=device-width initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Swiss</title>
-	<link rel="stylesheet"  href="css/style.min.css">
+	<link rel="stylesheet" href="css/style.css"> 
 </head>
 <body>
-	<div class="wraper">
-		<header>
-			<nav class="burger">
-				<a href="#" class="burger__button" id="burger-button">
-					<span class="burger__button__icon"></span>
-				</a>
-				<ul class="burger__menu">				
-					<li><a href="index.html" titel="Home">Home</a></li>
-					<li><a href="#" titel="Ask">Ask</a></li>
-					<li><a href="#" titel="Archive">Archive</a></li>
-					<li><a href="#" titel="Contact">Contact</a></li>
-				</ul>
-			</nav>
-			<div class="swiss">
-				<p>Swiss</p>
-			</div>
-			<div class="hello">
-				<p>Hello, I am Swiss, a beautiful, minimal Tumblr theme. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eusimo.</p>
-			</div>
-		</header>
-		<div class="slider"> 
-			<div class="slider_content"> 
-				<div class="slide slide-1 active"></div> 
-				<div class="slide slide-2"></div>
-				<div class="slide slide-3"></div> 
-			</div> 
-			<div class="arrows"> 
-				<a class="prev" href="#"></a> 
-				<a class="next" href="#"></a> 
-			</div> 
+	<nav class="burger">
+		<a href="#" class="burger__button" id="burger-button">
+			<span class="burger__button__icon"></span>
+		</a>
+		<ul class="burger__menu">				
+			<li><a href="index.html" titel="Home">Home</a></li>
+			<li><a href="#" titel="Ask">Ask</a></li>
+			<li><a href="#" titel="Archive">Archive</a></li>
+			<li><a href="#" titel="Contact">Contact</a></li>
+		</ul>
+	</nav>
+
+	<div class= "greeting">
+		<p class="swiss_header"> Swiss </p>
+		<p class="greet">Hello, I am Swiss, a beautiful, minimal Tumblr theme. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eusimo.</p>		
+	</div>
+
+	<div class="slider"> 
+		<div class="slider_content"> 
+			<div class="slide slide-1 active"></div> 
+			<div class="slide slide-2"></div>
+			<div class="slide slide-3"></div> 
+		</div> 
+		<div class="arrows"> 
+			<a class="prev" href="#"></a> 
+			<a class="next" href="#"></a> 
+		</div> 
+	</div>
+
+	<div class="text_post">
+		<p class="text_post_header">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+		<p class="text_post_comments"><img src="img/time.png"> 4 Jan 2014 &nbsp;&nbsp;&nbsp;&nbsp; <img src="img/pen.png">  Text  &nbsp;&nbsp;&nbsp;&nbsp; <img src="img/comments.png"> 3 Comments
+		</p>
+		<p class="text_post_content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+	</div>
+
+	<div class="form">
+		<h2>Login Form</h2>
+
+		<button id="myBut">Login</button>
+
+		<div id="myModal" class="modal">
+
+			<form class="modal-content animate">
+				<div class="imgcontainer">
+					<span id="myClose" class="close">&times;</span>
+					<img src="img/avatar.png" alt="Avatar" class="avatar">
+				</div>
+
+				<div class="container">
+					<label><b>Username</b></label>
+					<input type="text" placeholder="Enter Username" name="uname" required>
+
+					<label><b>Password</b></label>
+					<input type="password" placeholder="Enter Password" name="psw" required>
+
+					<button type="submit">Login</button>
+					<input type="checkbox" checked="checked"> Remember me
+				</div>
+
+				<div class="cancel_container">
+					<button id="cancelBut" type="button" class="cancelbtn">Cancel</button>
+					<span class="psw">Forgot <a href="#">password?</a></span>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="quote">
+		<img src="img/asd.png" > 4 Jan 2014 &nbsp;&nbsp;&nbsp;&nbsp; <img src="img/redQuote.png">  Quote  &nbsp;&nbsp;&nbsp;&nbsp; <img src="img/redComments.png"> 5 Comments
+		<p class="quote_content">"People need routines. It’s like a theme in music. But it also restricts your thoughts and actions and limits your freedom. It structures your priorities and in some cases distorts your logic"</p>
+		<p class="quote_author">
+			Haruki Murakami</p>
 		</div>
 
-		<div class="text_post">
-			<div class="header"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p></div>
-			<div class="comments">
-				<p><img src="img/time.png"> 4 Jan 2014 &nbsp;&nbsp;&nbsp;&nbsp; <img src="img/text.png">  Text  &nbsp;&nbsp;&nbsp;&nbsp; <img src="img/comment.png"> 3 Comments</p>
-			</div>			
-			<div class="content">
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
-			</div>
-		</div>
-		<div class="www">
-			<h2>Login Form</h2>
 
-			<button id="myBut">Login</button>
-
-
-			<div id="myModal" class="modal">
-
-				<form class="modal-content animate">
-					<div class="imgcontainer">
-						<span id="myClose" class="close">&times;</span>
-						<img src="img/avatar.png" alt="Avatar" class="avatar">
-					</div>
-
-					<div class="container">
-						<label><b>Username</b></label>
-						<input type="text" placeholder="Enter Username" name="uname" required>
-
-						<label><b>Password</b></label>
-						<input type="password" placeholder="Enter Password" name="psw" required>
-
-						<button type="submit">Login</button>
-						<input type="checkbox" checked="checked"> Remember me
-					</div>
-
-					<div class="cancel_container">
-						<button id="cancelBut" type="button" class="cancelbtn">Cancel</button>
-						<span class="psw">Forgot <a href="#">password?</a></span>
-					</div>
-				</form>
+		<div class="video">
+			<img src="img/timeDark.png"> 4 Jan 2014 &nbsp;&nbsp;&nbsp;&nbsp; <img src="img/video.png">  Video  &nbsp;&nbsp;&nbsp;&nbsp; <img src="img/commentDark.png"> 5 Comments
+			<div align="center">
+				<video class="cideo_content" src="video/Регион Рона-Альпы зимой - Winter in Rhone Alps.mp4" controls="controls">					
+				</video>
 			</div>
 		</div>
 
-		<div class="quote">
-			<div class="info">
-				<div><img src="img/time.png"> 4 Jan 2014 &nbsp;&nbsp;&nbsp;&nbsp; <img src="img/text.png">  Quote  &nbsp;&nbsp;&nbsp;&nbsp; <img src="img/comment.png"> 5 Comments</div>
-				<p class="content">"People need routines. It’s like a theme in music. But it also restricts your thoughts and actions and limits your freedom. It structures your priorities and in some cases distorts your logic"</p>
-				<p class="author">
-					Haruki Murakami</p>
-				</div>
+
+		<div class="image">
+			<p><img src="img/time.png"> 4 Jan 2014 &nbsp;&nbsp;&nbsp;&nbsp; <img src="img/image.png">  Image  &nbsp;&nbsp;&nbsp;&nbsp; <img src="img/comments.png"> 5 Comments</p>
+			<div align="center">
+				<img src="img/9791365_ml.png" class="image2">
 			</div>
+		</div>
 
-			<div class="video">
-				<div><img src="img/time.png"> 4 Jan 2014 &nbsp;&nbsp;&nbsp;&nbsp; <img src="img/text.png">  Video  &nbsp;&nbsp;&nbsp;&nbsp; <img src="img/comment.png"> 5 Comments</div>
-
-				<div align="center">
-					<video src="video/Регион Рона-Альпы зимой - Winter in Rhone Alps.mp4" controls="controls" width="607" height="360">						
-					</video>
-				</div>
+		<div class="music">
+			<img src="img/asd.png" > 4 Jan 2014 &nbsp;&nbsp;&nbsp;&nbsp; <img src="img/music.png">  Music  &nbsp;&nbsp;&nbsp;&nbsp; <img src="img/redComments.png"> 5 Comments
+			<div align="center">
+				<audio src="music/for-emma-forever-ago.mp3" controls autobuffer></audio>
 			</div>
-
-			<div class="image">
-				<p><img src="img/time.png"> 4 Jan 2014 &nbsp;&nbsp;&nbsp;&nbsp; <img src="img/text.png">  Video  &nbsp;&nbsp;&nbsp;&nbsp; <img src="img/comment.png"> 5 Comments</p>
-				<div align="center">
-					<img src="img/9791365_ml.png" class="image2">
-				</div>
-			</div>
-
-			<div class="music">
-				<div><img src="img/time.png"> 4 Jan 2014 &nbsp;&nbsp;&nbsp;&nbsp; <img src="img/text.png">  Video  &nbsp;&nbsp;&nbsp;&nbsp; <img src="img/comment.png"> 5 Comments</div>
-				<div align="center">
-					<audio src="music/for-emma-forever-ago.mp3" controls autobuffer></audio>
+		</div>
+		
+		<div class="footer">
+			<div class="footer_content">
+				<p>Swiss Theme by Niall MacFarlane</p>
+				<div class="lables">
+				<a class="facebook" href="https://www.facebook.com/swissalpsband/"></a>
+				<a class="twitter" href="https://twitter.com/alpineswiss"></a>
+				<a class="vk" href="https://vk.com/club50678994"></a>
+				<a class="other" href=""></a>
 				</div>
 			</div>
 		</div>
-		<script src="js/common.min.js"></script>
+
+		<script src="js/style.js"></script>
 	</body>
-	</html>	
+	</html>
