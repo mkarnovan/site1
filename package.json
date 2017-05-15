@@ -26,5 +26,20 @@
     "gulp-uglifyjs": "^0.6.2",
     "imagemin-pngquant": "^5.0.0",
     "normalize.css": "^5.0.0"
+  },
+  "dependencies": {
+    "add": "^2.0.6",
+    "angular-ui-carousel": "^0.1.9",
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "junk": "^2.1.0",
+    "mongoose": "^4.9.9",
+    "morgan": "^1.8.1",
+    "nodemon": "^1.11.0",
+    "nunjucks": "^3.0.0",
+    "pg": "^6.1.5",
+    "pg-promise": "^5.7.0",
+    "yarn": "^0.24.4"
   }
 }

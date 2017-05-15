@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>News</title>
+	<link rel="stylesheet" href="css/header.css"> 
+	<link rel="stylesheet" href="css/burger.css"> 
+	<link rel="stylesheet" href="css/bootstrap.css"> 
+	<link rel="stylesheet" href="css/news.css"> 
+	<link rel="stylesheet" href="css/loginForm.css"> 
+
+</head>
+<body>
+	
+	<nav class="burger">
+		<a href="#" class="burger__button" id="burger-button">
+			<span class="burger__button__icon"></span>
+		</a>
+		<ul class="burger__menu">				
+			<li><a href="index.html" titel="Home">Home</a></li>
+			<li><a href="#" titel="Ask">Ask</a></li>
+			<li><a href="angular.html" titel="Angular slider">Angular slider</a></li>
+			<li><a href="#" titel="Contact">Contact</a></li>
+			<li><a href="news.html" titel="News">News</a></li>
+		</ul>
+	</nav> 
+
+<!-- <div class="form">
+		<h2>Login Form</h2>
+
+		<button id="myBut">Login</button>
+
+		<div id="myModal" class="modal">
+
+			<form class="modal-content animate">
+				<div class="imgcontainer">
+					<span id="myClose" class="close">&times;</span>
+					<img src="img/avatar.png" alt="Avatar" class="avatar">
+				</div>
+
+				<div class="container">
+					<label><b>Username</b></label>
+					<input type="text" placeholder="Enter Username" name="uname" required>
+
+					<label><b>Password</b></label>
+					<input type="password" placeholder="Enter Password" name="psw" required>
+
+					<button type="submit">Login</button>
+					<input type="checkbox" checked="checked"> Remember me
+				</div>
+
+				<div class="cancel_container">
+					<button id="cancelBut" type="button" class="cancelbtn">Cancel</button>
+					<span class="psw">Forgot <a href="#">password?</a></span>
+				</div>
+			</form>
+		</div>
+	</div> -->
+
+
+	<div class="repeation">
+		<div ng-controller="NewsCtrl">
+			<h2>Total news: {{getTotalTodos()}}</h2>
+			<ul class="unstyled">
+				<li class="blockSingle" ng-repeat="new in news">
+					<div class="repeation_block">
+
+
+						<button id="detailBut" class="title">{{new.text}}</button>
+
+						<div id="detailModal" class="modal">
+
+						<form class="modal-content animate">
+							<span id="closeSpan" class="close">&times;</span>
+							<div class="container">
+								<label><b>{{new.text}}</b></label>
+								<label><b>{{new.description}}</b></label>
+							</div>
+							<div class="cancel_container">
+							<button id="cancelBut" type="button" class="cancelbtn">Cancel</button>				
+							</div>
+						</form>
+					</div>
+
+
+
+
+					<p class="description">
+						{{new.description}}
+					</p>
+				</div>
+			</li>
+		</ul>
+		<form class="form-horizontal1">
+			<input type="text" ng-model="fromTodoTitle" ng-model-instant placeholder="Title">
+		</form>
+		<form class="form-horizontal2">
+			<textarea type="text" ng-model="fromTodoDescription" ng-model-instant placeholder="Description"></textarea>
+			<button class="btn" ng-click="addTodo()">Add</button>
+		</form>
+	</div>
+</div>
+
+
+<script src="js/burger.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/new.js"></script>
+<script src="js/underscore-min.js"></script>
+<script src="js/detail.js"></script>
+</body>
+</html>

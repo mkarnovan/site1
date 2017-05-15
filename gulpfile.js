@@ -13,7 +13,6 @@ sourcemaps = require('gulp-sourcemaps'),
 less = require('gulp-less'),
 jsmin = require('gulp-jsmin');
 
-
 gulp.task('less', function() {
 	return gulp.src('app/less/**/*.less')
 	.pipe(less())
