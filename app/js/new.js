@@ -21,4 +21,8 @@ function NewsCtrl ($scope) {
 		$scope.fromTodoTitle = '';
 		$scope.fromTodoDescription = '';
 	}
+
+    $scope.remove = function(index) {
+    	$scope.news.splice(index, 1);
+    };
 }

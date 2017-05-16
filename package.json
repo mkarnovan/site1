@@ -29,10 +29,13 @@
   },
   "dependencies": {
     "add": "^2.0.6",
+    "angular-modal-service": "^0.11.1",
     "angular-ui-carousel": "^0.1.9",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
+    "bootstrap": "^3.3.7",
     "express": "^4.15.2",
+    "jquery": "^3.2.1",
     "junk": "^2.1.0",
     "mongoose": "^4.9.9",
     "morgan": "^1.8.1",
