@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="loginApp">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -58,20 +58,22 @@
 					<img src="img/avatar.png" alt="Avatar" class="avatar">
 				</div>
 
-				<div class="container">
-					<label><b>Username</b></label>
-					<input type="text" placeholder="Enter Username" name="uname" required>
+				<div ng-controller="NewsUser">
+					<div class="container">
+						<label><b>Username</b></label>
+						<input type="text" ng-model="userLogin" placeholder="Enter Username" name="uname" required>
 
-					<label><b>Password</b></label>
-					<input type="password" placeholder="Enter Password" name="psw" required>
+						<label><b>Password</b></label>
+						<input type="password" ng-model="userPassword" placeholder="Enter Password" name="psw" required>
 
-					<button type="submit">Login</button>
-					<input type="checkbox" checked="checked"> Remember me
-				</div>
+						<button type="submit" ng-click="addUser()">Login</button>
+						<input type="checkbox" checked="checked"> Remember me
+					</div>
 
-				<div class="cancel_container">
-					<button id="cancelBut" type="button" class="cancelbtn">Cancel</button>
-					<span class="psw">Forgot <a href="#">password?</a></span>
+					<div class="cancel_container">
+						<button id="cancelBut" type="button" class="cancelbtn">Cancel</button>
+						<span class="psw">Forgot <a href="#">password?</a></span>
+					</div>
 				</div>
 			</form>
 		</div>
@@ -112,14 +114,20 @@
 			<div class="footer_content">
 				<p>Swiss Theme by Niall MacFarlane</p>
 				<div class="lables">
-				<a class="facebook" href="https://www.facebook.com/swissalpsband/"></a>
-				<a class="twitter" href="https://twitter.com/alpineswiss"></a>
-				<a class="vk" href="https://vk.com/club50678994"></a>
-				<a class="other" href=""></a>
+					<a class="facebook" href="https://www.facebook.com/swissalpsband/"></a>
+					<a class="twitter" href="https://twitter.com/alpineswiss"></a>
+					<a class="vk" href="https://vk.com/club50678994"></a>
+					<a class="other" href=""></a>
 				</div>
 			</div>
 		</div>
 
 		<script src="js/style.js"></script>
+	<script src="js/libpopup.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/burger.js"></script>
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-modal-service.js"></script>
+		<script src="js/new.js"></script>
 	</body>
 	</html>
