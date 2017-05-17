@@ -30,6 +30,7 @@
   "dependencies": {
     "add": "^2.0.6",
     "angular-modal-service": "^0.11.1",
+    "angular-touch": "^1.6.4",
     "angular-ui-carousel": "^0.1.9",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
@@ -41,8 +42,11 @@
     "morgan": "^1.8.1",
     "nodemon": "^1.11.0",
     "nunjucks": "^3.0.0",
+    "passport": "^0.3.2",
     "pg": "^6.1.5",
     "pg-promise": "^5.7.0",
+    "ui": "^0.2.4",
+    "ui-bootstrap": "^0.1.10",
     "yarn": "^0.24.4"
   }
 }

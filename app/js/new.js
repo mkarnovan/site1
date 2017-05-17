@@ -1,4 +1,5 @@
-function NewsCtrl ($scope, $http) {
+var newsApp = angular.module('newsApp', []);
+newsApp.controller('NewsCtrl', function ($scope, $http) {
 	$scope.news = []; 
 	$http.get('http://localhost:3000/api/news')
 	.success((request) => {
@@ -33,14 +34,52 @@ function NewsCtrl ($scope, $http) {
 		$scope.news.push({text:$scope.fromTodoTitle, description: $scope.fromTodoDescription});
 		$scope.fromTodoTitle = '';
 		$scope.fromTodoDescription = '';
-	}
+	};
 
 	$scope.remove = function(index) {
 		var _id = $scope.news[index].id;
 		$http.delete('http://localhost:3000/api/news/' + _id);
 		$scope.news.splice(index, 1);
 	};
-}
+
+	$scope.sendIdNew = function (ind) {
+		var data = {
+			id_new: 1
+		}
+		data.id_new = ind
+		var postItems = JSON.stringify(data);
+		$http.post('http://localhost:3000/api/detail', postItems);
+	};
+
+})
+
+newsApp.controller('DetailCtrl', function  ($scope, $http) {
+	$scope.detail = {
+		id_new: 1,
+		title: 'text',
+		description: 'text'
+	}
+
+
+	$http.get('http://localhost:3000/api/detail')
+	.success((request) => {
+		$scope.detail.id_new = request.data[0].id_new;
+		$http.get('http://localhost:3000/api/news/' + $scope.detail.id_new)
+		.success((request) => {
+			$scope.detail.title = request.data.title;
+			$scope.detail.description = request.data.description;	
+			var _id = $scope.detail.id;
+			console.log($scope.detail.title);
+			$http.delete('http://localhost:3000/api/detail/'+ $scope.detail.id_new);
+			$scope.detailTitle = $scope.detail.title;
+		})
+	})
+	
+	$scope.getDetailDescription = function () {
+		return $scope.detail.title;
+	}
+});
+
 
 const myApp = angular.module('loginApp', []);
 

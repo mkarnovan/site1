@@ -1,71 +1,17 @@
-angular.module('site', ['ngAnimate'])
-.controller('MainCtrl', function ($scope) {
-	$scope.slides = [
-	{
-		image: 'img/18227458_l.png'
-	},
-	{
-		image: 'img/18227458_2.png'
-	},
-	{
-		image: 'img/18227458_3.png'
-	},
-	];        
-
-	$scope.direction = 'left';
-	$scope.currentIndex = 0;
-
-	$scope.setCurrentSlideIndex = function (index) {
-		$scope.direction = (index > $scope.currentIndex) ? 'left' : 'right';
-		$scope.currentIndex = index;
-	};
-
-	$scope.isCurrentSlideIndex = function (index) {
-		return $scope.currentIndex === index;
-	};
-
-	$scope.prevSlide = function () {
-		$scope.direction = 'left';
-		$scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 0;
-	};
-
-	$scope.nextSlide = function () {
-		$scope.direction = 'right';
-		$scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.slides.length - 1;
-	};
-})
-.animation('.slide-animation', function () {
-	return {
-		beforeAddClass: function (element, className, done) {
-			var scope = element.scope();
-
-			if (className == 'ng-hide') {
-				var finishPoint = element.parent().width();
-				if(scope.direction !== 'right') {
-					finishPoint = -finishPoint;
-				}
-				TweenMax.to(element, 0.5, {left: finishPoint, onComplete: done });
-			}
-			else {
-				done();
-			}
-		},
-		removeClass: function (element, className, done) {
-			var scope = element.scope();
-
-			if (className == 'ng-hide') {
-				element.removeClass('ng-hide');
-
-				var startPoint = element.parent().width();
-				if(scope.direction === 'right') {
-					startPoint = -startPoint;
-				}
-
-				TweenMax.fromTo(element, 0.5, { left: startPoint }, {left: 0, onComplete: done });
-			}
-			else {
-				done();
-			}
-		}
-	};
+angular.module('site', ['ngAnimate', 'ngSanitize', 'ui.bootstrap']);
+angular.module('site').controller('sliderCtrl', function ($scope) {
+  var slides = $scope.slides = [];
+  var currIndex = 0;
+  $scope.sliders_no_wrap = false;
+  $scope.active = 0;
+  $scope.addSlide = function(ind) {
+    slides.push({
+      image: '//unsplash.it/' + ind + '/300',
+      id: currIndex++
+    });
+  };
+  for (var i = 0; i < 4; i++) {
+  	var ind = Math.random() * (1000 - 600) + 600;
+    $scope.addSlide(ind);
+  }
 });

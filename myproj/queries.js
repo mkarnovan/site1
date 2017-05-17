@@ -17,7 +17,10 @@ module.exports = {
   createNews: createNews,
   updateNews: updateNews,
   removeNews: removeNews,
-  addUser: addUser
+  addUser: addUser,
+  getDetail: getDetail,
+  sendIdNew: sendIdNew,
+  removeDetail: removeDetail
 };
 
 function getAllNews(req, res, next) {
@@ -68,6 +71,38 @@ function createNews(req, res, next) {
   });
 };
 
+function getDetail(req, res, next) {
+  db.any('select * from detail')
+  .then(function (data) {
+    res.status(200)
+    .json({
+      status: 'success',
+      data: data,
+      message: 'Retrieved ALL news'
+    });
+  })
+  .catch(function (err) {
+    return next(err);
+  });
+};
+
+function sendIdNew(req, res, next) {
+  req.body.id_user = parseInt(req.body.id_user);
+  db.none('insert into detail(id_new)' +
+    'values(${id_new})',
+    req.body)
+  .then(function () {
+    res.status(200)
+    .json({
+      status: 'success',
+      message: 'Inserted one news'
+    });
+  })
+  .catch(function (err) {
+    return next(err);
+  });
+};
+
 function addUser(req, res, next) {
   db.none('insert into users(login, password)' +
     'values(${login}, ${password})',
@@ -102,6 +137,23 @@ function updateNews(req, res, next) {
 function removeNews(req, res, next) {
   var newsID = parseInt(req.params.id);
   db.result('delete from news where id = $1', newsID)
+  .then(function (result) {
+    /* jshint ignore:start */
+    res.status(200)
+    .json({
+      status: 'success',
+      message: `Removed ${result.rowCount} news`
+    });
+    /* jshint ignore:end */
+  })
+  .catch(function (err) {
+    return next(err);
+  });
+};
+
+function removeDetail(req, res, next) {
+  var detailID = parseInt(req.params.id);
+  db.result('delete from news where id_new = $1', detailID)
   .then(function (result) {
     /* jshint ignore:start */
     res.status(200)

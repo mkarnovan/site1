@@ -19,9 +19,21 @@ var users = require('./routes/users');
 
 var app = express();
 
+var passport = require('passport');
+var FacebookStrategy = require('passport-facebook').Strategy;
+
+var FACEBOOK_APP_ID = '119507568543641';
+var FACEBOOK_APP_SECRET = 'a12581ddc5916de0d47b1c673f91bf66';
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 //here is the magic
 app.use(cors(corsOptions));
 
+app.get('/', function(req, res, next) {
+  res.sendfile('../app/angular.html');
+});
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -36,6 +48,31 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+
+passport.use(new FacebookStrategy({
+  clientID: FACEBOOK_APP_ID,
+  clientSecret: FACEBOOK_APP_SECRET,
+  callbackURL: 'http://localhost:3000/auth/facebook/callback'
+}, function(accessToken, refreshToken, profile, done) {
+  process.nextTick(function() {
+    done(null, profile);
+  });
+}));
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
+
+app.get('/auth/facebook', passport.authenticate('facebook'));
+
+app.get('/auth/facebook/callback', passport.authenticate('facebook', {
+  successRedirect: '/success',
+  failureRedirect: '/error'
+}));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
