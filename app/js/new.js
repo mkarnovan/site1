@@ -1,4 +1,4 @@
-var newsApp = angular.module('newsApp', []);
+var newsApp = angular.module('newsApp', ['ui.router']);
 newsApp.controller('NewsCtrl', function ($scope, $http) {
 	$scope.news = []; 
 	$http.get('http://localhost:3000/api/news')
@@ -51,7 +51,19 @@ newsApp.controller('NewsCtrl', function ($scope, $http) {
 		$http.post('http://localhost:3000/api/detail', postItems);
 	};
 
+
+
 })
+
+newsApp.config(function($stateProvider) {
+  var helloState = {
+    name: 'name',
+    url: '/detailTitle',
+    template: '<h3>hello world!</h3>'
+  }
+
+  $stateProvider.state(helloState);
+});
 
 newsApp.controller('DetailCtrl', function  ($scope, $http) {
 	$scope.detail = {

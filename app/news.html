@@ -30,9 +30,11 @@
 				<li class="blockSingle" ng-repeat="new in news">
 					<div class="repeation_block">
 
+						<div class="routing">
+							<a ui-ref="detailTitle" ui-sref-active="active">{{new.text}}</a>
 
-						<a href="detail.html" class="title" ng-click="sendIdNew({{new.id}})">{{new.text}}</a>
-
+							<ui-view></ui-view>
+						</div>
 
 						<p class="description">
 							{{new.description}}
@@ -55,8 +57,7 @@
 
 
 
-
-	<script src="js/libpopup.js"></script>
+	<script src="js/angular-ui-router.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/burger.js"></script>
 	<script src="js/angular.min.js"></script>
